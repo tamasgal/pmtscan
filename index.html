@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <!-- <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script> //-->
+        <script src="node_modules/angular/angular.min.js"></script>
+        <link rel="stylesheet" href="style.css" />
+        <script src="script.js"></script>
+    </head>
+
+    <body ng-app="pmtScan">
+
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="">PMTscan</a>
+                    </div>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <!--<li><a href="#"><i class="fa fa-home"> </i>Home</a>//-->
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container" ng-controller="scanController">
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <input ng-model="code" id="scan-field" type="text" class="form-control" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="status-field"
+                 class="alert"
+                 ng-class="{ 'alert-danger': scan_status().code === 'fail',
+                             'alert-success': scan_status().code === 'ok',
+                             'alert-warning': scan_status().code === 'waiting',
+                             'alert-info': scan_status().code === 'ready'}">
+                {{ scan_status().message }}
+            </div>
+
+            <div class="row">
+                <div id="scan-log" ng-model="log" class="col-md-6 col-md-offset-3">
+                    <pre>{{ log }}</pre>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
+</html>

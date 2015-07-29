@@ -1,0 +1,15 @@
+#scan-field {
+    font-family: "Lucida Console", Monaco, monospace;
+    text-align: center;
+    font-size: 1.6em;
+    height: 2.0em;
+    color: #0BBBE3;
+}
+
+#scan-log {
+    font-family: "Lucida Console", Monaco, monospace;
+}
+
+#status-field {
+    text-align: center;
+}
