@@ -5,3 +5,5 @@ You need to install Angular.js and Bootstrap e.g. via npm (execute it in the roo
 
     npm install bootstrap
     npm install angular
+
+…and then open index.html in your browser.
