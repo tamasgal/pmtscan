@@ -29,8 +29,8 @@ pmtScan.controller('scanController', ['$scope', function ($scope) {
         if(code == undefined) {
             return { 'code': 'ready', 'message': 'Ready to scan ' + what_to_scan + ' #' + n };
         }
-        // Check for board code
-        if(/^[A-Z][0-9]{8}$/.test(code) && what_to_scan === 'board') {
+        // Check for base code
+        if(/^A[0-9]{8}$/.test(code) && what_to_scan === 'base') {
             if($scope.log.indexOf(code) == -1) {
                 $scope.log += ' ' + code + "\n";
                 $scope.code = undefined;
@@ -43,9 +43,9 @@ pmtScan.controller('scanController', ['$scope', function ($scope) {
             if($scope.log.indexOf(code) == -1) {
                 $scope.log += code;
                 $scope.code = undefined;
-                $scope.what_to_scan = 'board';
+                $scope.what_to_scan = 'base';
             }
-            return { 'code': 'ok', 'message': 'Valid board code.' };
+            return { 'code': 'ok', 'message': 'Valid base code.' };
         }
         return { 'code': 'waiting', 'message': 'Waiting for valid ' + what_to_scan + ' code...' };
     };
