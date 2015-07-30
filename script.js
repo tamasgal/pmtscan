@@ -39,7 +39,7 @@ pmtScan.controller('scanController', ['$scope', function ($scope) {
             return { 'code': 'ok', 'message': 'Valid PMT code.' };
         }
         // Check for PMT code
-        if(/3\.4\.2\.3\/.{11}\/[0-9]\.[0-9]{5}/.test(code) && what_to_scan === 'PMT') {
+        if(/3\.4\.2\.3\/.{11}\/[0-9]\.[0-9]*/.test(code) && what_to_scan === 'PMT') {
             if($scope.log.indexOf(code) == -1) {
                 $scope.log += code;
                 $scope.code = undefined;
